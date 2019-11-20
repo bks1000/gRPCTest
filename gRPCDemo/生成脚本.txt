@@ -1,0 +1,51 @@
+﻿参考：https://blog.csdn.net/img_Guo/article/details/86096604
+
+通过proto生成代码的命令
+D:\MyCode\test\netcore\WebApp\gRPCDemo> packages\grpc.tools\2.25.0\tools\windows_x86\protoc.exe -IgRPCDemo --csharp_out GRPCDemo gRPCDemo\proto\hello.proto --grpc_out gRPCDemo --plugin=protoc-gen-grpc=packages\grpc.tools\2.25.0\tools\windows_x86\grpc_csharp_plugin.exe
+
+
+
+//如果拆分了proto，则每个proto文件都要生成cs文件。有service定义的proto会生成两个文件。
+D:\MyCode\test\netcore\WebApp\gRPCDemo>packages\grpc.tools\2.25.0\tools\windows_x86\protoc.exe -I gRPCDemo\proto --csharp_out GRPCDemo gRPCDemo\proto\hello.proto  --grpc_out gRPCDemo --plugin=protoc-gen-grpc=packages\grpc.tools\2.25.0\tools\windows_x86\grpc_csharp_plugin.exe
+D:\MyCode\test\netcore\WebApp\gRPCDemo>packages\grpc.tools\2.25.0\tools\windows_x86\protoc.exe -I gRPCDemo\proto --csharp_out GRPCDemo gRPCDemo\proto\query.proto  --grpc_out gRPCDemo --plugin=protoc-gen-grpc=packages\grpc.tools\2.25.0\tools\windows_x86\grpc_csharp_plugin.exe
+
+
+proto数据类型
+
+proto									Java
+double									double
+float									float
+int32/uint32/sint32/fixed32/sfixed32	int
+int64/uint64/sint64/fixed64/sfixed64	long
+bool									boolean
+string									String
+bytes									ByteString
+
+
+
+.proto文件最终生成什么
+
+当你使用protoc 来编译一个.proto文件的时候，编译器将利用你在文件中定义的类型生成你打算使用的语言的代码文件。生成的代码包括getting setting 接口和序列化，反序列化接口。
+
+对于C ++，编译器会从每个.proto文件生成一个.h和一个.cc文件，并为您文件中描述的每种消息类型提供一个类。
+
+对于Java，编译器生成一个.java文件，其中包含每种消息类型的类，以及Builder用于创建消息类实例的特殊类。
+
+Python有点不同 - Python编译器生成一个模块，其中包含每个消息类型的静态描述符，然后，用一个元类在运行时创建必要的Python数据访问类。
+
+对于Go，编译器会为.pb.go文件中的每种消息类型生成一个类型的文件。
+
+对于Ruby，编译器生成一个.rb包含消息类型的Ruby模块的文件。
+
+对于Objective-C，编译器从每个.proto文件生成一个pbobjc.h和一个pbobjc.m文件，其中包含文件中描述的每种消息类型的类。
+
+对于C＃，编译器会从每个.proto文件生成一个.cs文件，其中包含文件中描述的每种消息类型的类。
+
+您可以按照所选语言的教程（即将推出的proto3版本）了解有关为每种语言使用API的更多信息。有关更多API详细信息，请参阅相关API参考（proto3版本即将推出）。
+
+
+
+
+Protobuf 语言指南(proto3)
+https://www.cnblogs.com/sanshengshui/p/9739521.html
+

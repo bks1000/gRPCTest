@@ -1,0 +1,63 @@
+﻿syntax = "proto3";
+package gRPCDemo;
+
+import "query.proto";
+
+service gRPC {
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc Add (AddRequest) returns (AddReply){}
+}
+
+service QueryServie{
+	/*
+	查询
+	*/
+	rpc query (SearchRequest) returns (SearchResponse){}
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
+
+/*message AddRequest{
+	int32 a = 1;
+	int32 b = 2;
+}
+
+message AddReply{
+	int32 c = 1;
+	string msg = 2;
+}*/
+
+//查询参数定义
+message SearchRequest {
+  string query = 1;
+  int32 page_number = 2;
+  int32 result_per_page = 3;
+  enum Corpus {
+    UNIVERSAL = 0;
+    WEB = 1;
+    IMAGES = 2;
+    LOCAL = 3;
+    NEWS = 4;
+    PRODUCTS = 5;
+    VIDEO = 6;
+  }
+  Corpus corpus = 4;
+}
+
+//查询响应结果定义
+//repeated 表示是一个集合
+message SearchResponse {
+  repeated Result results = 1;
+}
+
+message Result {
+  string url = 1;
+  string title = 2;
+  repeated string snippets = 3;
+}

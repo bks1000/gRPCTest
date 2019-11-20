@@ -1,0 +1,8 @@
+D:\MyCode\test\netcore\WebApp\gRPCDemo\bin\Debug\netcoreapp3.0\gRPCDemo.deps.json
+D:\MyCode\test\netcore\WebApp\gRPCDemo\bin\Debug\netcoreapp3.0\gRPCDemo.dll
+D:\MyCode\test\netcore\WebApp\gRPCDemo\obj\Debug\netcoreapp3.0\gRPCDemo.AssemblyInfoInputs.cache
+D:\MyCode\test\netcore\WebApp\gRPCDemo\obj\Debug\netcoreapp3.0\gRPCDemo.AssemblyInfo.cs
+D:\MyCode\test\netcore\WebApp\gRPCDemo\obj\Debug\netcoreapp3.0\gRPCDemo.csprojAssemblyReference.cache
+D:\MyCode\test\netcore\WebApp\gRPCDemo\bin\Debug\netcoreapp3.0\gRPCDemo.pdb
+D:\MyCode\test\netcore\WebApp\gRPCDemo\obj\Debug\netcoreapp3.0\gRPCDemo.dll
+D:\MyCode\test\netcore\WebApp\gRPCDemo\obj\Debug\netcoreapp3.0\gRPCDemo.pdb
