@@ -1,0 +1,3 @@
+﻿好处是添加了Grpc.Tools，根据proto自动生成代码。
+配置参考：
+https://github.com/grpc/grpc/blob/master/src/csharp/BUILD-INTEGRATION.md

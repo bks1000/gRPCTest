@@ -1,0 +1,33 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "gRPCLib";
+
+package gRPCLib;
+
+service UserService{
+	rpc GetOneUser (ReqsGetOneUser) returns (RespGetOneUser);
+	rpc GetAllUser (ReqsNull) returns (RespGetAllUser);	
+}
+
+message ReqsGetOneUser{
+	string condition=1;
+}
+
+message RespGetOneUser{
+	User user = 1;	
+}
+
+message ReqsNull{}
+
+message RespGetAllUser{
+	repeated User users = 1;
+}
+
+message User{
+	string id = 1;
+	string name = 2;
+	int32 age = 3;
+	string address = 4;
+	string phone = 5;
+}
+
