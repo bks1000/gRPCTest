@@ -16,6 +16,8 @@ namespace gRPCLibServer
             };
             server.Start();
 
+            AutoMapper.Mapper.Initialize(conf => conf.AddConditionalObjectMapper());    //初始化Mapper
+
             Console.WriteLine("gRPC server listening on port " + Port);
             Console.WriteLine("任意键退出...");
             Console.ReadKey();

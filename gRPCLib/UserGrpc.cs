@@ -16,6 +16,8 @@ namespace gRPCLib {
     static readonly grpc::Marshaller<global::gRPCLib.RespGetOneUser> __Marshaller_gRPCLib_RespGetOneUser = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::gRPCLib.RespGetOneUser.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::gRPCLib.ReqsNull> __Marshaller_gRPCLib_ReqsNull = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::gRPCLib.ReqsNull.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::gRPCLib.RespGetAllUser> __Marshaller_gRPCLib_RespGetAllUser = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::gRPCLib.RespGetAllUser.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::gRPCLib.User> __Marshaller_gRPCLib_User = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::gRPCLib.User.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::gRPCLib.SaveResult> __Marshaller_gRPCLib_SaveResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::gRPCLib.SaveResult.Parser.ParseFrom);
 
     static readonly grpc::Method<global::gRPCLib.ReqsGetOneUser, global::gRPCLib.RespGetOneUser> __Method_GetOneUser = new grpc::Method<global::gRPCLib.ReqsGetOneUser, global::gRPCLib.RespGetOneUser>(
         grpc::MethodType.Unary,
@@ -30,6 +32,13 @@ namespace gRPCLib {
         "GetAllUser",
         __Marshaller_gRPCLib_ReqsNull,
         __Marshaller_gRPCLib_RespGetAllUser);
+
+    static readonly grpc::Method<global::gRPCLib.User, global::gRPCLib.SaveResult> __Method_Save = new grpc::Method<global::gRPCLib.User, global::gRPCLib.SaveResult>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Save",
+        __Marshaller_gRPCLib_User,
+        __Marshaller_gRPCLib_SaveResult);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -47,6 +56,11 @@ namespace gRPCLib {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::gRPCLib.RespGetAllUser> GetAllUser(global::gRPCLib.ReqsNull request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::gRPCLib.SaveResult> Save(global::gRPCLib.User request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -108,6 +122,22 @@ namespace gRPCLib {
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetAllUser, null, options, request);
       }
+      public virtual global::gRPCLib.SaveResult Save(global::gRPCLib.User request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Save(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::gRPCLib.SaveResult Save(global::gRPCLib.User request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Save, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::gRPCLib.SaveResult> SaveAsync(global::gRPCLib.User request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SaveAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::gRPCLib.SaveResult> SaveAsync(global::gRPCLib.User request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Save, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override UserServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -121,7 +151,8 @@ namespace gRPCLib {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_GetOneUser, serviceImpl.GetOneUser)
-          .AddMethod(__Method_GetAllUser, serviceImpl.GetAllUser).Build();
+          .AddMethod(__Method_GetAllUser, serviceImpl.GetAllUser)
+          .AddMethod(__Method_Save, serviceImpl.Save).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -132,6 +163,7 @@ namespace gRPCLib {
     {
       serviceBinder.AddMethod(__Method_GetOneUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::gRPCLib.ReqsGetOneUser, global::gRPCLib.RespGetOneUser>(serviceImpl.GetOneUser));
       serviceBinder.AddMethod(__Method_GetAllUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::gRPCLib.ReqsNull, global::gRPCLib.RespGetAllUser>(serviceImpl.GetAllUser));
+      serviceBinder.AddMethod(__Method_Save, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::gRPCLib.User, global::gRPCLib.SaveResult>(serviceImpl.Save));
     }
 
   }
