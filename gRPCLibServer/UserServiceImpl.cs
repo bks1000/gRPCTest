@@ -71,14 +71,8 @@ namespace gRPCLibServer
                 RespGetAllUser resp = new RespGetAllUser();
                 foreach (var item in ctx.User)
                 {
-                    resp.Users.Add(new gRPCLib.User
-                    {
-                        Id = item.Id,
-                        Name = item.Name,
-                        Age = item.Age,
-                        Address = item.Address,
-                        Phone = item.Phone
-                    });
+                    gRPCLib.User user = Mapper.Map<gRPCLibServer.User, gRPCLib.User>(item);
+                    resp.Users.Add(user);
                 }
                 return resp;
             }
