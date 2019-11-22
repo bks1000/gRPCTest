@@ -30,11 +30,12 @@ namespace gRPCLib {
             "bHQSDgoGcmVzdWx0GAEgASgIIi4KDlJlc3BHZXRBbGxVc2VyEhwKBXVzZXJz",
             "GAEgAygLMg0uZ1JQQ0xpYi5Vc2VyIk0KBFVzZXISCgoCaWQYASABKAkSDAoE",
             "bmFtZRgCIAEoCRILCgNhZ2UYAyABKAUSDwoHYWRkcmVzcxgEIAEoCRINCgVw",
-            "aG9uZRgFIAEoCTKzAQoLVXNlclNlcnZpY2USPgoKR2V0T25lVXNlchIXLmdS",
+            "aG9uZRgFIAEoCTLhAQoLVXNlclNlcnZpY2USPgoKR2V0T25lVXNlchIXLmdS",
             "UENMaWIuUmVxc0dldE9uZVVzZXIaFy5nUlBDTGliLlJlc3BHZXRPbmVVc2Vy",
             "EjgKCkdldEFsbFVzZXISES5nUlBDTGliLlJlcXNOdWxsGhcuZ1JQQ0xpYi5S",
             "ZXNwR2V0QWxsVXNlchIqCgRTYXZlEg0uZ1JQQ0xpYi5Vc2VyGhMuZ1JQQ0xp",
-            "Yi5TYXZlUmVzdWx0QgqqAgdnUlBDTGliYgZwcm90bzM="));
+            "Yi5TYXZlUmVzdWx0EiwKBkRlbGV0ZRINLmdSUENMaWIuVXNlchoTLmdSUENM",
+            "aWIuU2F2ZVJlc3VsdEIKqgIHZ1JQQ0xpYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {

@@ -8,6 +8,7 @@ service UserService{
 	rpc GetOneUser (ReqsGetOneUser) returns (RespGetOneUser);
 	rpc GetAllUser (ReqsNull) returns (RespGetAllUser);	
 	rpc Save (User) returns (SaveResult);
+	rpc Delete (User) returns (SaveResult);
 }
 
 message ReqsGetOneUser{

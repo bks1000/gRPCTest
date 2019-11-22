@@ -40,6 +40,13 @@ namespace gRPCLib {
         __Marshaller_gRPCLib_User,
         __Marshaller_gRPCLib_SaveResult);
 
+    static readonly grpc::Method<global::gRPCLib.User, global::gRPCLib.SaveResult> __Method_Delete = new grpc::Method<global::gRPCLib.User, global::gRPCLib.SaveResult>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Delete",
+        __Marshaller_gRPCLib_User,
+        __Marshaller_gRPCLib_SaveResult);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -61,6 +68,11 @@ namespace gRPCLib {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::gRPCLib.SaveResult> Save(global::gRPCLib.User request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::gRPCLib.SaveResult> Delete(global::gRPCLib.User request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -138,6 +150,22 @@ namespace gRPCLib {
       {
         return CallInvoker.AsyncUnaryCall(__Method_Save, null, options, request);
       }
+      public virtual global::gRPCLib.SaveResult Delete(global::gRPCLib.User request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Delete(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::gRPCLib.SaveResult Delete(global::gRPCLib.User request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Delete, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::gRPCLib.SaveResult> DeleteAsync(global::gRPCLib.User request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::gRPCLib.SaveResult> DeleteAsync(global::gRPCLib.User request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Delete, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override UserServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -152,7 +180,8 @@ namespace gRPCLib {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_GetOneUser, serviceImpl.GetOneUser)
           .AddMethod(__Method_GetAllUser, serviceImpl.GetAllUser)
-          .AddMethod(__Method_Save, serviceImpl.Save).Build();
+          .AddMethod(__Method_Save, serviceImpl.Save)
+          .AddMethod(__Method_Delete, serviceImpl.Delete).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -164,6 +193,7 @@ namespace gRPCLib {
       serviceBinder.AddMethod(__Method_GetOneUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::gRPCLib.ReqsGetOneUser, global::gRPCLib.RespGetOneUser>(serviceImpl.GetOneUser));
       serviceBinder.AddMethod(__Method_GetAllUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::gRPCLib.ReqsNull, global::gRPCLib.RespGetAllUser>(serviceImpl.GetAllUser));
       serviceBinder.AddMethod(__Method_Save, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::gRPCLib.User, global::gRPCLib.SaveResult>(serviceImpl.Save));
+      serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::gRPCLib.User, global::gRPCLib.SaveResult>(serviceImpl.Delete));
     }
 
   }

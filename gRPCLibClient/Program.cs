@@ -23,21 +23,34 @@ namespace gRPCLibClient
             });
             Console.WriteLine("Get index 2 user data :{0}", user.User.Name);
 
-            //save
-            /*gRPCLib.User u = new gRPCLib.User();
-            //u.Id = Guid.NewGuid().ToString();
-            u.Id = "";
-            u.Name = "gRpcTest";
-            u.Address = "中华大街自强路";
-            u.Age = 35;
-            u.Phone = "13300009999";
-            var r = await client.SaveAsync(u);
-            Console.WriteLine(r.Result);*/
-
             //update
             user.User.Address = "gRPCupdate";
             var r = await client.SaveAsync(user.User);
             Console.WriteLine(r.Result);
+
+            //insert
+            gRPCLib.User u = new gRPCLib.User();
+            //u.Id = Guid.NewGuid().ToString();
+            u.Id = "";
+            u.Name = "gRpcTest2";
+            u.Address = "中华大街自强路2";
+            u.Age = 35;
+            u.Phone = "13300009999";
+            var res = await client.SaveAsync(u);
+            Console.WriteLine(res.Result);
+
+            //delete
+            reply = await client.GetAllUserAsync(new gRPCLib.ReqsNull { });
+            foreach (var item in reply.Users)
+            {
+                if (item.Name==u.Name)
+                {
+                    res = await client.DeleteAsync(item);
+                    Console.WriteLine("删除：{0}", res.Result);
+                    break;
+                }
+            }
+           
 
             channel.ShutdownAsync().Wait();
             Console.WriteLine("任意键退出...");

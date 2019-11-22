@@ -62,6 +62,18 @@ namespace gRPCLibServer
             }
         }
 
+        public override Task<SaveResult> Delete(gRPCLib.User request, ServerCallContext context)
+        {
+            using (MysqlDbContext ctx = new MysqlDbContext())
+            {
+                gRPCLibServer.User user = Mapper.Map<gRPCLib.User, gRPCLibServer.User>(request);
+                ctx.User.Remove(user);
+
+                int cnt = ctx.SaveChanges();
+                return Task.FromResult(new SaveResult { Result = cnt > 0 });
+            }
+        }
+
 
 
         public RespGetAllUser Query()
