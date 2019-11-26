@@ -18,6 +18,9 @@
     <Protobuf Include="..\GrpcServiceApp\Protos\user.proto" GrpcServices="Client">
       <Link>Protos\user.proto</Link>
     </Protobuf>
+    <Protobuf Include="..\GrpcServiceApp\Protos\xmkprojunit.proto" GrpcServices="Client">
+      <Link>Protos\xmkprojunit.proto</Link>
+    </Protobuf>
   </ItemGroup>
 
 </Project>

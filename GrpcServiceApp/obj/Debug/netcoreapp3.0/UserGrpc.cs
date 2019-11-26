@@ -10,17 +10,42 @@ using grpc = global::Grpc.Core;
 namespace GrpcServiceApp {
   public static partial class UserService
   {
-    static readonly string __ServiceName = "user.UserService";
+    static readonly string __ServiceName = "UserService";
 
-    static readonly grpc::Marshaller<global::GrpcServiceApp.AddRequest> __Marshaller_user_AddRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.AddRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GrpcServiceApp.AddResponse> __Marshaller_user_AddResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.AddResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.ReqsGetOneUser> __Marshaller_ReqsGetOneUser = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.ReqsGetOneUser.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.RespGetOneUser> __Marshaller_RespGetOneUser = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.RespGetOneUser.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.ReqsNull> __Marshaller_ReqsNull = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.ReqsNull.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.RespGetAllUser> __Marshaller_RespGetAllUser = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.RespGetAllUser.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.User> __Marshaller_User = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.User.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.SaveResult> __Marshaller_SaveResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.SaveResult.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::GrpcServiceApp.AddRequest, global::GrpcServiceApp.AddResponse> __Method_Add = new grpc::Method<global::GrpcServiceApp.AddRequest, global::GrpcServiceApp.AddResponse>(
+    static readonly grpc::Method<global::GrpcServiceApp.ReqsGetOneUser, global::GrpcServiceApp.RespGetOneUser> __Method_GetOneUser = new grpc::Method<global::GrpcServiceApp.ReqsGetOneUser, global::GrpcServiceApp.RespGetOneUser>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "Add",
-        __Marshaller_user_AddRequest,
-        __Marshaller_user_AddResponse);
+        "GetOneUser",
+        __Marshaller_ReqsGetOneUser,
+        __Marshaller_RespGetOneUser);
+
+    static readonly grpc::Method<global::GrpcServiceApp.ReqsNull, global::GrpcServiceApp.RespGetAllUser> __Method_GetAllUser = new grpc::Method<global::GrpcServiceApp.ReqsNull, global::GrpcServiceApp.RespGetAllUser>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetAllUser",
+        __Marshaller_ReqsNull,
+        __Marshaller_RespGetAllUser);
+
+    static readonly grpc::Method<global::GrpcServiceApp.User, global::GrpcServiceApp.SaveResult> __Method_Save = new grpc::Method<global::GrpcServiceApp.User, global::GrpcServiceApp.SaveResult>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Save",
+        __Marshaller_User,
+        __Marshaller_SaveResult);
+
+    static readonly grpc::Method<global::GrpcServiceApp.User, global::GrpcServiceApp.SaveResult> __Method_Delete = new grpc::Method<global::GrpcServiceApp.User, global::GrpcServiceApp.SaveResult>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Delete",
+        __Marshaller_User,
+        __Marshaller_SaveResult);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -32,7 +57,22 @@ namespace GrpcServiceApp {
     [grpc::BindServiceMethod(typeof(UserService), "BindService")]
     public abstract partial class UserServiceBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::GrpcServiceApp.AddResponse> Add(global::GrpcServiceApp.AddRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GrpcServiceApp.RespGetOneUser> GetOneUser(global::GrpcServiceApp.ReqsGetOneUser request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::GrpcServiceApp.RespGetAllUser> GetAllUser(global::GrpcServiceApp.ReqsNull request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::GrpcServiceApp.SaveResult> Save(global::GrpcServiceApp.User request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::GrpcServiceApp.SaveResult> Delete(global::GrpcServiceApp.User request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -44,7 +84,10 @@ namespace GrpcServiceApp {
     public static grpc::ServerServiceDefinition BindService(UserServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_Add, serviceImpl.Add).Build();
+          .AddMethod(__Method_GetOneUser, serviceImpl.GetOneUser)
+          .AddMethod(__Method_GetAllUser, serviceImpl.GetAllUser)
+          .AddMethod(__Method_Save, serviceImpl.Save)
+          .AddMethod(__Method_Delete, serviceImpl.Delete).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -53,7 +96,10 @@ namespace GrpcServiceApp {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, UserServiceBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Add, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcServiceApp.AddRequest, global::GrpcServiceApp.AddResponse>(serviceImpl.Add));
+      serviceBinder.AddMethod(__Method_GetOneUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcServiceApp.ReqsGetOneUser, global::GrpcServiceApp.RespGetOneUser>(serviceImpl.GetOneUser));
+      serviceBinder.AddMethod(__Method_GetAllUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcServiceApp.ReqsNull, global::GrpcServiceApp.RespGetAllUser>(serviceImpl.GetAllUser));
+      serviceBinder.AddMethod(__Method_Save, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcServiceApp.User, global::GrpcServiceApp.SaveResult>(serviceImpl.Save));
+      serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcServiceApp.User, global::GrpcServiceApp.SaveResult>(serviceImpl.Delete));
     }
 
   }

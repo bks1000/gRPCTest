@@ -7,10 +7,14 @@
   <ItemGroup>
     <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\user.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\xmkprojunit.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.23.1" />
+    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.18" />
+    <PackageReference Include="Oracle.EntityFrameworkCore" Version="2.19.50" />
   </ItemGroup>
 
 </Project>

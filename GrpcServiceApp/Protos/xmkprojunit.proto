@@ -1,0 +1,26 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcServiceApp";
+
+package xmk;
+
+service XmkProjUnitService{
+	rpc QueryProjUnit (QueryProjUnitRequest) returns (XmkProjUnit);
+}
+
+message QueryProjUnitRequest{
+	string proCode=1;
+}
+
+message QueryProjUnitResponse{
+	repeated XmkProjUnit units=1;
+}
+
+message XmkProjUnit{
+	string itemId=1;
+	string proCode=2;
+	int32 agency = 3;
+	string agencyType=4;
+	int32 bdgYear = 5;
+	string admdivCode=6;
+}

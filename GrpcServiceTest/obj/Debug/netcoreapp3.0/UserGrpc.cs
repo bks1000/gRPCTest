@@ -10,17 +10,42 @@ using grpc = global::Grpc.Core;
 namespace GrpcServiceApp {
   public static partial class UserService
   {
-    static readonly string __ServiceName = "user.UserService";
+    static readonly string __ServiceName = "UserService";
 
-    static readonly grpc::Marshaller<global::GrpcServiceApp.AddRequest> __Marshaller_user_AddRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.AddRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GrpcServiceApp.AddResponse> __Marshaller_user_AddResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.AddResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.ReqsGetOneUser> __Marshaller_ReqsGetOneUser = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.ReqsGetOneUser.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.RespGetOneUser> __Marshaller_RespGetOneUser = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.RespGetOneUser.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.ReqsNull> __Marshaller_ReqsNull = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.ReqsNull.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.RespGetAllUser> __Marshaller_RespGetAllUser = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.RespGetAllUser.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.User> __Marshaller_User = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.User.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.SaveResult> __Marshaller_SaveResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.SaveResult.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::GrpcServiceApp.AddRequest, global::GrpcServiceApp.AddResponse> __Method_Add = new grpc::Method<global::GrpcServiceApp.AddRequest, global::GrpcServiceApp.AddResponse>(
+    static readonly grpc::Method<global::GrpcServiceApp.ReqsGetOneUser, global::GrpcServiceApp.RespGetOneUser> __Method_GetOneUser = new grpc::Method<global::GrpcServiceApp.ReqsGetOneUser, global::GrpcServiceApp.RespGetOneUser>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "Add",
-        __Marshaller_user_AddRequest,
-        __Marshaller_user_AddResponse);
+        "GetOneUser",
+        __Marshaller_ReqsGetOneUser,
+        __Marshaller_RespGetOneUser);
+
+    static readonly grpc::Method<global::GrpcServiceApp.ReqsNull, global::GrpcServiceApp.RespGetAllUser> __Method_GetAllUser = new grpc::Method<global::GrpcServiceApp.ReqsNull, global::GrpcServiceApp.RespGetAllUser>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetAllUser",
+        __Marshaller_ReqsNull,
+        __Marshaller_RespGetAllUser);
+
+    static readonly grpc::Method<global::GrpcServiceApp.User, global::GrpcServiceApp.SaveResult> __Method_Save = new grpc::Method<global::GrpcServiceApp.User, global::GrpcServiceApp.SaveResult>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Save",
+        __Marshaller_User,
+        __Marshaller_SaveResult);
+
+    static readonly grpc::Method<global::GrpcServiceApp.User, global::GrpcServiceApp.SaveResult> __Method_Delete = new grpc::Method<global::GrpcServiceApp.User, global::GrpcServiceApp.SaveResult>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Delete",
+        __Marshaller_User,
+        __Marshaller_SaveResult);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -51,21 +76,69 @@ namespace GrpcServiceApp {
       {
       }
 
-      public virtual global::GrpcServiceApp.AddResponse Add(global::GrpcServiceApp.AddRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::GrpcServiceApp.RespGetOneUser GetOneUser(global::GrpcServiceApp.ReqsGetOneUser request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return Add(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return GetOneUser(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::GrpcServiceApp.AddResponse Add(global::GrpcServiceApp.AddRequest request, grpc::CallOptions options)
+      public virtual global::GrpcServiceApp.RespGetOneUser GetOneUser(global::GrpcServiceApp.ReqsGetOneUser request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_Add, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_GetOneUser, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::GrpcServiceApp.AddResponse> AddAsync(global::GrpcServiceApp.AddRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::GrpcServiceApp.RespGetOneUser> GetOneUserAsync(global::GrpcServiceApp.ReqsGetOneUser request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return AddAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return GetOneUserAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::GrpcServiceApp.AddResponse> AddAsync(global::GrpcServiceApp.AddRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::GrpcServiceApp.RespGetOneUser> GetOneUserAsync(global::GrpcServiceApp.ReqsGetOneUser request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_Add, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_GetOneUser, null, options, request);
+      }
+      public virtual global::GrpcServiceApp.RespGetAllUser GetAllUser(global::GrpcServiceApp.ReqsNull request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetAllUser(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::GrpcServiceApp.RespGetAllUser GetAllUser(global::GrpcServiceApp.ReqsNull request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetAllUser, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcServiceApp.RespGetAllUser> GetAllUserAsync(global::GrpcServiceApp.ReqsNull request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetAllUserAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcServiceApp.RespGetAllUser> GetAllUserAsync(global::GrpcServiceApp.ReqsNull request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetAllUser, null, options, request);
+      }
+      public virtual global::GrpcServiceApp.SaveResult Save(global::GrpcServiceApp.User request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Save(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::GrpcServiceApp.SaveResult Save(global::GrpcServiceApp.User request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Save, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcServiceApp.SaveResult> SaveAsync(global::GrpcServiceApp.User request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SaveAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcServiceApp.SaveResult> SaveAsync(global::GrpcServiceApp.User request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Save, null, options, request);
+      }
+      public virtual global::GrpcServiceApp.SaveResult Delete(global::GrpcServiceApp.User request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Delete(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::GrpcServiceApp.SaveResult Delete(global::GrpcServiceApp.User request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Delete, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcServiceApp.SaveResult> DeleteAsync(global::GrpcServiceApp.User request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcServiceApp.SaveResult> DeleteAsync(global::GrpcServiceApp.User request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Delete, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override UserServiceClient NewInstance(ClientBaseConfiguration configuration)
