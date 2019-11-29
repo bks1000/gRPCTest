@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GrpcServiceApp.Common.Db;
 using GrpcServiceApp.Dao;
+using GrpcServiceApp.IDao;
 using GrpcServiceApp.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,11 +29,19 @@ namespace GrpcServiceApp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //gRPC
             services.AddGrpc();
             //oracle
-            //services.AddDbContext<OracleDbContext>(opts=>opts.UseOracle(Configuration.GetConnectionString("oraconstr")));
+            //Oracle.EntityFrameworkCore
+            services.AddDbContext<OracleDbContext>(opts=>opts.UseOracle(Configuration.GetConnectionString("oracon")));
+            
+            //oracle.ManagedDataAccess.Core
+            services.AddSingleton<OracleDataBase>(new OracleDataBase(Configuration.GetConnectionString("oracon")));
             //mysql
             services.AddDbContext<MysqlDbContext>(opts => opts.UseMySQL(Configuration.GetConnectionString("mysqlconstr")));
+
+            //IOC
+            services.AddTransient<IProjUnitDao, ProjUnitDao>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

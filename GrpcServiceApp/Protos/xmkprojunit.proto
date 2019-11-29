@@ -6,6 +6,15 @@ package xmk;
 
 service XmkProjUnitService{
 	rpc QueryProjUnit (QueryProjUnitRequest) returns (XmkProjUnit);
+	rpc QueryProjUnitAll (Nvl) returns (Data);
+}
+
+message Nvl{
+	
+}
+
+message Data{
+	string data = 1;
 }
 
 message QueryProjUnitRequest{

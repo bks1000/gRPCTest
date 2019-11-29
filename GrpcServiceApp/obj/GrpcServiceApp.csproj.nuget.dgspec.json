@@ -55,7 +55,15 @@
               "target": "Package",
               "version": "[8.0.18, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
             "Oracle.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.19.50, )"
+            },
+            "Oracle.ManagedDataAccess.Core": {
               "target": "Package",
               "version": "[2.19.50, )"
             }

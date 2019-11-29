@@ -24,17 +24,21 @@ namespace GrpcServiceApp {
     static XmkprojunitReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChF4bWtwcm9qdW5pdC5wcm90bxIDeG1rIicKFFF1ZXJ5UHJvalVuaXRSZXF1",
-            "ZXN0Eg8KB3Byb0NvZGUYASABKAkiOAoVUXVlcnlQcm9qVW5pdFJlc3BvbnNl",
-            "Eh8KBXVuaXRzGAEgAygLMhAueG1rLlhta1Byb2pVbml0IncKC1hta1Byb2pV",
-            "bml0Eg4KBml0ZW1JZBgBIAEoCRIPCgdwcm9Db2RlGAIgASgJEg4KBmFnZW5j",
-            "eRgDIAEoBRISCgphZ2VuY3lUeXBlGAQgASgJEg8KB2JkZ1llYXIYBSABKAUS",
-            "EgoKYWRtZGl2Q29kZRgGIAEoCTJSChJYbWtQcm9qVW5pdFNlcnZpY2USPAoN",
-            "UXVlcnlQcm9qVW5pdBIZLnhtay5RdWVyeVByb2pVbml0UmVxdWVzdBoQLnht",
-            "ay5YbWtQcm9qVW5pdEIRqgIOR3JwY1NlcnZpY2VBcHBiBnByb3RvMw=="));
+            "ChF4bWtwcm9qdW5pdC5wcm90bxIDeG1rIgUKA052bCIUCgREYXRhEgwKBGRh",
+            "dGEYASABKAkiJwoUUXVlcnlQcm9qVW5pdFJlcXVlc3QSDwoHcHJvQ29kZRgB",
+            "IAEoCSI4ChVRdWVyeVByb2pVbml0UmVzcG9uc2USHwoFdW5pdHMYASADKAsy",
+            "EC54bWsuWG1rUHJvalVuaXQidwoLWG1rUHJvalVuaXQSDgoGaXRlbUlkGAEg",
+            "ASgJEg8KB3Byb0NvZGUYAiABKAkSDgoGYWdlbmN5GAMgASgFEhIKCmFnZW5j",
+            "eVR5cGUYBCABKAkSDwoHYmRnWWVhchgFIAEoBRISCgphZG1kaXZDb2RlGAYg",
+            "ASgJMnsKElhta1Byb2pVbml0U2VydmljZRI8Cg1RdWVyeVByb2pVbml0Ehku",
+            "eG1rLlF1ZXJ5UHJvalVuaXRSZXF1ZXN0GhAueG1rLlhta1Byb2pVbml0EicK",
+            "EFF1ZXJ5UHJvalVuaXRBbGwSCC54bWsuTnZsGgkueG1rLkRhdGFCEaoCDkdy",
+            "cGNTZXJ2aWNlQXBwYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcServiceApp.Nvl), global::GrpcServiceApp.Nvl.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcServiceApp.Data), global::GrpcServiceApp.Data.Parser, new[]{ "Data_" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcServiceApp.QueryProjUnitRequest), global::GrpcServiceApp.QueryProjUnitRequest.Parser, new[]{ "ProCode" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcServiceApp.QueryProjUnitResponse), global::GrpcServiceApp.QueryProjUnitResponse.Parser, new[]{ "Units" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcServiceApp.XmkProjUnit), global::GrpcServiceApp.XmkProjUnit.Parser, new[]{ "ItemId", "ProCode", "Agency", "AgencyType", "BdgYear", "AdmdivCode" }, null, null, null)
@@ -44,6 +48,236 @@ namespace GrpcServiceApp {
 
   }
   #region Messages
+  public sealed partial class Nvl : pb::IMessage<Nvl> {
+    private static readonly pb::MessageParser<Nvl> _parser = new pb::MessageParser<Nvl>(() => new Nvl());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Nvl> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GrpcServiceApp.XmkprojunitReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Nvl() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Nvl(Nvl other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Nvl Clone() {
+      return new Nvl(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Nvl);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Nvl other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Nvl other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class Data : pb::IMessage<Data> {
+    private static readonly pb::MessageParser<Data> _parser = new pb::MessageParser<Data>(() => new Data());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Data> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GrpcServiceApp.XmkprojunitReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Data() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Data(Data other) : this() {
+      data_ = other.data_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Data Clone() {
+      return new Data(this);
+    }
+
+    /// <summary>Field number for the "data" field.</summary>
+    public const int Data_FieldNumber = 1;
+    private string data_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Data_ {
+      get { return data_; }
+      set {
+        data_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Data);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Data other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Data_ != other.Data_) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Data_.Length != 0) hash ^= Data_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Data_.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Data_);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Data_.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Data_);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Data other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Data_.Length != 0) {
+        Data_ = other.Data_;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Data_ = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed partial class QueryProjUnitRequest : pb::IMessage<QueryProjUnitRequest> {
     private static readonly pb::MessageParser<QueryProjUnitRequest> _parser = new pb::MessageParser<QueryProjUnitRequest>(() => new QueryProjUnitRequest());
     private pb::UnknownFieldSet _unknownFields;
@@ -52,7 +286,7 @@ namespace GrpcServiceApp {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcServiceApp.XmkprojunitReflection.Descriptor.MessageTypes[0]; }
+      get { return global::GrpcServiceApp.XmkprojunitReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -181,7 +415,7 @@ namespace GrpcServiceApp {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcServiceApp.XmkprojunitReflection.Descriptor.MessageTypes[1]; }
+      get { return global::GrpcServiceApp.XmkprojunitReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -302,7 +536,7 @@ namespace GrpcServiceApp {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcServiceApp.XmkprojunitReflection.Descriptor.MessageTypes[2]; }
+      get { return global::GrpcServiceApp.XmkprojunitReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace GrpcServiceApp.Dao
 {
+    //Oracle.EntityFrameworkCore
     //oracle数据库连不上，服务端必须是12版本以上，参考：https://dba.stackexchange.com/questions/142085/ora-01017-invalid-username-passwordlogon-denied
     public class OracleDbContext : DbContext
     {
@@ -23,6 +24,6 @@ namespace GrpcServiceApp.Dao
             }
         }*/
 
-        public DbSet<YS_T_XMKPROJUNIT> ProjUnit { get; set; }
+        public DbSet<YS_T_XMKPROJUNIT> YS_T_XMKPROJUNIT { get; set; }
     }
 }

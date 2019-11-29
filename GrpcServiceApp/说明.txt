@@ -18,3 +18,14 @@ GRPC一共定义4种服务方法：
 服务器流RPC（Server streaming RPCs）：客户端发送一个请求，服务端返回一个流给客户端，客户从流中读取一系列消息，直到读取所有小心
 客户端流RPC(Client streaming RPCs )：客户端通过流向服务端发送一系列消息，然后等待服务端读取完数据并返回处理结果
 双向流RPC(Bidirectional streaming RPCs)：客户端和服务端都可以独立向对方发送或接受一系列的消息。客户端和服务端读写的顺序是任意。
+
+
+
+Oracle
+Oracle.EntityFrameworkCore 
+描述：
+Oracle Data Provider for .NET (ODP.NET) Entity Framework Core for Oracle Database.
+
+Oracle.ManagedDataAccess.Core
+描述：
+Oracle Data Provider for .NET (ODP.NET) Core is an ADO.NET driver that provides fast data access from Microsoft .NET Core clients to Oracle databases. ODP.NET Core consists of a single 100% managed code dynamic-link library.

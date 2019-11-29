@@ -14,6 +14,8 @@ namespace GrpcServiceApp {
 
     static readonly grpc::Marshaller<global::GrpcServiceApp.QueryProjUnitRequest> __Marshaller_xmk_QueryProjUnitRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.QueryProjUnitRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GrpcServiceApp.XmkProjUnit> __Marshaller_xmk_XmkProjUnit = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.XmkProjUnit.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.Nvl> __Marshaller_xmk_Nvl = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.Nvl.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.Data> __Marshaller_xmk_Data = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.Data.Parser.ParseFrom);
 
     static readonly grpc::Method<global::GrpcServiceApp.QueryProjUnitRequest, global::GrpcServiceApp.XmkProjUnit> __Method_QueryProjUnit = new grpc::Method<global::GrpcServiceApp.QueryProjUnitRequest, global::GrpcServiceApp.XmkProjUnit>(
         grpc::MethodType.Unary,
@@ -21,6 +23,13 @@ namespace GrpcServiceApp {
         "QueryProjUnit",
         __Marshaller_xmk_QueryProjUnitRequest,
         __Marshaller_xmk_XmkProjUnit);
+
+    static readonly grpc::Method<global::GrpcServiceApp.Nvl, global::GrpcServiceApp.Data> __Method_QueryProjUnitAll = new grpc::Method<global::GrpcServiceApp.Nvl, global::GrpcServiceApp.Data>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "QueryProjUnitAll",
+        __Marshaller_xmk_Nvl,
+        __Marshaller_xmk_Data);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -66,6 +75,22 @@ namespace GrpcServiceApp {
       public virtual grpc::AsyncUnaryCall<global::GrpcServiceApp.XmkProjUnit> QueryProjUnitAsync(global::GrpcServiceApp.QueryProjUnitRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_QueryProjUnit, null, options, request);
+      }
+      public virtual global::GrpcServiceApp.Data QueryProjUnitAll(global::GrpcServiceApp.Nvl request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return QueryProjUnitAll(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::GrpcServiceApp.Data QueryProjUnitAll(global::GrpcServiceApp.Nvl request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_QueryProjUnitAll, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcServiceApp.Data> QueryProjUnitAllAsync(global::GrpcServiceApp.Nvl request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return QueryProjUnitAllAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcServiceApp.Data> QueryProjUnitAllAsync(global::GrpcServiceApp.Nvl request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_QueryProjUnitAll, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override XmkProjUnitServiceClient NewInstance(ClientBaseConfiguration configuration)

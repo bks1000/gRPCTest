@@ -14,6 +14,8 @@ namespace GrpcServiceApp {
 
     static readonly grpc::Marshaller<global::GrpcServiceApp.QueryProjUnitRequest> __Marshaller_xmk_QueryProjUnitRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.QueryProjUnitRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GrpcServiceApp.XmkProjUnit> __Marshaller_xmk_XmkProjUnit = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.XmkProjUnit.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.Nvl> __Marshaller_xmk_Nvl = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.Nvl.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServiceApp.Data> __Marshaller_xmk_Data = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServiceApp.Data.Parser.ParseFrom);
 
     static readonly grpc::Method<global::GrpcServiceApp.QueryProjUnitRequest, global::GrpcServiceApp.XmkProjUnit> __Method_QueryProjUnit = new grpc::Method<global::GrpcServiceApp.QueryProjUnitRequest, global::GrpcServiceApp.XmkProjUnit>(
         grpc::MethodType.Unary,
@@ -21,6 +23,13 @@ namespace GrpcServiceApp {
         "QueryProjUnit",
         __Marshaller_xmk_QueryProjUnitRequest,
         __Marshaller_xmk_XmkProjUnit);
+
+    static readonly grpc::Method<global::GrpcServiceApp.Nvl, global::GrpcServiceApp.Data> __Method_QueryProjUnitAll = new grpc::Method<global::GrpcServiceApp.Nvl, global::GrpcServiceApp.Data>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "QueryProjUnitAll",
+        __Marshaller_xmk_Nvl,
+        __Marshaller_xmk_Data);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -37,6 +46,11 @@ namespace GrpcServiceApp {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task<global::GrpcServiceApp.Data> QueryProjUnitAll(global::GrpcServiceApp.Nvl request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -44,7 +58,8 @@ namespace GrpcServiceApp {
     public static grpc::ServerServiceDefinition BindService(XmkProjUnitServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_QueryProjUnit, serviceImpl.QueryProjUnit).Build();
+          .AddMethod(__Method_QueryProjUnit, serviceImpl.QueryProjUnit)
+          .AddMethod(__Method_QueryProjUnitAll, serviceImpl.QueryProjUnitAll).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -54,6 +69,7 @@ namespace GrpcServiceApp {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, XmkProjUnitServiceBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_QueryProjUnit, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcServiceApp.QueryProjUnitRequest, global::GrpcServiceApp.XmkProjUnit>(serviceImpl.QueryProjUnit));
+      serviceBinder.AddMethod(__Method_QueryProjUnitAll, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcServiceApp.Nvl, global::GrpcServiceApp.Data>(serviceImpl.QueryProjUnitAll));
     }
 
   }
